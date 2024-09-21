@@ -83,7 +83,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## **Contact**
 - **Author:** [Shreyansh haran]
 - **Email:** [Shreyyjainn405@gmail.com]
-- **GitHub:** [https://github.com/shreyanshharan](https://github.com/shreyanshharan)
+- **GitHub:** [https://github.com/Shreyansh45-cell](https://github.com/Shreyansh45-cell)
 
 ---
 
