@@ -1,0 +1,42 @@
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, BaggingClassifier, ExtraTreesClassifier, GradientBoostingClassifier
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+
+
+SVC = SVC(kernel='sigmoid', gamma=1.0)
+knc = KNeighborsClassifier()
+mnb = MultinomialNB()
+dtc = DecisionTreeClassifier(max_depth=5)
+lrc = LogisticRegression(solver='liblinear', penalty='l1' )
+rfc = RandomForestClassifier(n_estimators=50, random_state=2)
+abc = AdaBoostClassifier(n_estimators=50, random_state=2)
+bc = BaggingClassifier(n_estimators=50, random_state=2)
+etc = ExtraTreesClassifier(n_estimators=50, random_state=2)
+gbdt = GradientBoostingClassifier(n_estimators=50,random_state=2)
+xgb = XGBClassifier(n_estimators=50,random_state=2)
+
+
+def model_training(clf, X_train, y_train):
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred)
+    return accuracy, precision
+
+
+accuracies = []
+precisions = []
+for name, clf in clfs.items():
+    current_accuracy, current_precision = model_training(clf, X_train, y_train)
+    print('For', name)
+    print('Accuracy', current_accuracy)
+    print('Precision', current_precision)
+    print('-'*40)
+    accuracies.append(current_accuracy)
+    precisions.append(current_precision)
+    
+
+performance = pd.DataFrame({'Algorithm': clfs.keys(), 'Accuracy': accuracies, 'precision': precisions})
